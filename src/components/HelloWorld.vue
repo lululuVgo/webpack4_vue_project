@@ -14,6 +14,7 @@
       </template>
     </basic-table>
     <el-button @click="doRequest" type="primary" size="mini">点击</el-button>
+<<<<<<< HEAD
     <tween-number :value="tweenValue"/>
     <el-date-picker
       v-model="value1"
@@ -25,22 +26,33 @@
     >
     </el-date-picker>
     <router-view/>
+=======
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
   </div>
 </template>
 
 <script>
   import basicTable from "./basicTable/basicTable";
+<<<<<<< HEAD
   import tweenNumber from "./tweenNumber/tweenNumber";
+=======
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
 
   export default {
     name: 'HelloWorld',
     components: {
       'basic-table': basicTable,
+<<<<<<< HEAD
       'tween-number': tweenNumber,
     },
     data() {
       return {
         value1:'',
+=======
+    },
+    data() {
+      return {
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
         msg: 'Welcome to Your Vue.js App',
         page: {
           currentPage: 1,
@@ -52,6 +64,10 @@
           {col: "zhenhao", col2: "hasdi", col4: "asdad2", col3: "adasdasd"},
           {col: "zhenhao", col2: "hasdi", col4: "asdad2", col3: "adasdasd"},
           {col: "zhenhao", col2: "hasdi", col4: "asdad2", col3: "adasdasd"},
+<<<<<<< HEAD
+=======
+
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
         ],
         tableHead: [
           {label: '列1', prop: 'col', show: true,},
@@ -59,11 +75,15 @@
           {label: '列3', prop: 'col3', show: true,},
           {label: '列4', prop: 'col4', show: true, slot: true},
         ],
+<<<<<<< HEAD
         tweenValue:100,
+=======
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
       }
     },
     methods: {
       doRequest() {
+<<<<<<< HEAD
         // this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
         //   console.log('1 - 请求成功');
         // }).catch(err => {
@@ -73,13 +93,35 @@
           this.tweenValue += 100;
         // });
 
+=======
+        this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
+          console.log('1 - 请求成功');
+        }).catch(err => {
+          // console.log(err);
+        })
+        // this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
+        //   console.log('2 - 请求成功');
+        // }).catch(err => {
+        //   // console.log(err);
+        // })
+        // setTimeout(() => {
+        //   this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
+        //     console.log('3 - 请求成功');
+        //   }).catch(err => {
+        //     // console.log(err);
+        //   })
+        // }, 3000)
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
       },
       /* 表格插槽作用域处理 */
       tableClick(props) {
         console.log(props);
+<<<<<<< HEAD
       },
       getWeek(){
         console.log(this.value1)
+=======
+>>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
       }
     },
     mounted() {

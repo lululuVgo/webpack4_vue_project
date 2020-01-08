@@ -5,11 +5,11 @@ import Router from 'vue-router'
 // const page3  = ()=>{ import  (  '../views/page3')};
 // const HelloWorld  = ()=>{ import  ( '../components/HelloWorld')};
 // const mainPage  = ()=>{ import  ( '../views/mainPage')};
- import page1 from'../views/page1'
- import page2 from'../views/page2'
- import page3 from  '../views/page3'
- import HelloWorld from  '../components/HelloWorld'
+import page1 from '../views/page1'
+import page2 from '../views/page2'
+import HelloWorld from '../components/HelloWorld'
 import mainPage from '../views/mainPage'
+
 
 Vue.use(Router);
 
@@ -41,4 +41,3 @@ export default new Router({
     },
   ]
 })
-

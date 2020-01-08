@@ -1,11 +1,7 @@
 import axios from 'axios'
 import {Loading, Message} from 'element-ui'
 import _ from "lodash"
-<<<<<<< HEAD
 //获取 CancelToken
-=======
-
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 /* 声明请求对象 */
@@ -62,11 +58,7 @@ function hideLoading(flag = true) {
   }
 }
 
-<<<<<<< HEAD
 /** 请求的url重复检测 */
-=======
-/* 请求的url重复检测 */
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
 function duplicatePathCheck(url) {
   if (url && requestPoolPaths.indexOf(url) !== -1) {
     /* 找到了相同请求 提醒并返回 */
@@ -78,11 +70,7 @@ function duplicatePathCheck(url) {
   }
 }
 
-<<<<<<< HEAD
 /** 请求成功后 清除请求 */
-=======
-/* 请求成功后 清除请求 */
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
 function clearFinishedURL(url) {
   for (let i = 0; i < requestPoolPaths.length; i++) {
     if (requestPoolPaths[i] === url) {
@@ -100,21 +88,6 @@ let executeHideLoading = _.debounce(() => {
   loading = null
 }, 300);
 
-/* 请求出错重置数据
-<<<<<<< HEAD
-*  重置请求计数, 重置请求url缓存, 隐藏loading
-=======
-*  重置请求计数
-*  重置请求url缓存
-*  隐藏loading
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
-*  */
-function resetRequest() {
-  requestPoolCounts = 0;
-  requestPoolPaths = [];
-  executeHideLoading();
-}
-
 /* 请求拦截器 */
 request.interceptors.request.use(config => {
   /* 请求重复判断
@@ -122,36 +95,16 @@ request.interceptors.request.use(config => {
    * 重复请求,则中断请求 */
   let url = config.baseURL + config.url;
   if (duplicatePathCheck(url)) {
-<<<<<<< HEAD
     requestPoolPaths.push(url);
     /* 当请求头 'showLoading 不为 false' 时, 即需要loading时 */
     /* 使用传入的元素执行loading, 如果没有传入, 默认使用body */
     config.headers.usingLoading && showLoading(config.headers.loadingTarget);
-=======
-    requestPoolPaths.push(url)
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
   } else {
     config.cancelToken = source.token;
     source.cancel("请勿连续发起重复请求!");
   }
-<<<<<<< HEAD
   return config
 }, error => {
-  // resetRequest();
-=======
-  /* 当请求头 'showLoading 不为 false' 时, 即需要loading时 */
-  if (config.headers.usingLoading) {
-    /* 使用传入的元素执行loading, 如果没有传入, 默认使用body */
-    showLoading(config.headers.loadingTarget);
-  }
-  return config
-}, error => {
-  /*
-  判断当前请求是否设置了不显示Loading
-  error.headers.usingLoading
-  */
-  resetRequest();
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
   return Promise.reject(error)
 });
 
@@ -162,25 +115,12 @@ request.interceptors.response.use(response => {
   hideLoading(response.config.headers.usingLoading);
   return response
 }, error => {
-<<<<<<< HEAD
   /* 如果是相同请求被终止的情况 */
   if (axios.isCancel(error)) {
     // console.log('错误信息:', error.message);
   } else {
     hideLoading();
   }
-=======
-  // console.log(error);
-  // if (axios.isCancel(error)) {
-  //   console.log('错误信息:', error.message);
-  // }
-  resetRequest();
-  // clearFinishedURL(error.config.url);
-  /* 如果头文件使用loading 则关闭loading */
-  /* error.config.headers.usingLoading */
-  // hideLoading();
-  // Message.error("请求错误,请等待刷新后重试,如再出现错误请及时联系系统管理员!");
->>>>>>> 187a96dc59ec39cde9a678fc405bb96c22609402
   return Promise.reject(error)
 });
 

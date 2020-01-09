@@ -6,7 +6,7 @@ const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 /* 声明请求对象 */
 let request = axios.create({
-  baseURL: 'http://127.0.0.1:5000',
+  baseURL: '',
   withCredentials: true,//默认携带cookie
   timeout: 20 * 1000,//请求超时20秒
   headers: {
@@ -119,6 +119,7 @@ request.interceptors.response.use(response => {
   if (axios.isCancel(error)) {
     // console.log('错误信息:', error.message);
   } else {
+    clearFinishedURL(error.response.config.url);
     hideLoading();
   }
   return Promise.reject(error)

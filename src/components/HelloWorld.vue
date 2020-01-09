@@ -16,7 +16,7 @@
     <el-button @click="doRequest" type="primary" size="mini">点击</el-button>
     <tween-number :value="tweenValue"/>
     <basic-reader
-    src="../../static/陆林-辞职报告"
+    src="../../static/陆林-辞职报告 "
     />
     <router-view/>
   </div>
@@ -58,25 +58,18 @@
       }
     },
     methods: {
-      doRequest() {
-          this.tweenValue += 100;
-        // this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
-        //   console.log('1 - 请求成功');
-        // }).catch(err => {
-        //   // console.log(err);
-        // })
+      doRequest(e) {
+        this.tweenValue += 100;
+        this.$axios.post("/api/getSum", {start: "1", end: "10"}).then((res) => {
+          console.log('1 - 请求成功');
+        }).catch(err => {
+          // console.log(err);
+        })
         // this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
         //   console.log('2 - 请求成功');
         // }).catch(err => {
         //   // console.log(err);
         // })
-        // setTimeout(() => {
-        //   this.$axios.post("/getSum", {start: "1", end: "10"}).then((res) => {
-        //     console.log('3 - 请求成功');
-        //   }).catch(err => {
-        //     // console.log(err);
-        //   })
-        // }, 3000)
       },
       /* 表格插槽作用域处理 */
       tableClick(props) {

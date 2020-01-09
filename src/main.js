@@ -4,7 +4,8 @@
 import 'element-ui/lib/theme-chalk/index.css';
 import Vue from 'vue'
 import App from './App'
-import 'babel-polyfill'
+
+import '@babel/polyfill'
 import 'es6-promise/auto'
 import router from './router'
 import element_ui from "element-ui"

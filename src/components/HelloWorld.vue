@@ -15,14 +15,9 @@
     </basic-table>
     <el-button @click="doRequest" type="primary" size="mini">点击</el-button>
     <tween-number :value="tweenValue"/>
-    <el-date-picker
-      v-model="value1"
-      type="week"
-      format="yyyy 第 WW 周"
-      placeholder="选择周"
-    @change="getWeek"
-    >
-    </el-date-picker>
+    <basic-reader
+    src="../../static/陆林-辞职报告"
+    />
     <router-view/>
   </div>
 </template>
@@ -30,20 +25,17 @@
 <script>
   import basicTable from "./basicTable/basicTable";
   import tweenNumber from "./tweenNumber/tweenNumber";
-
+  import basicReader from "./basicReader/basicReader";
   export default {
     name: 'HelloWorld',
     components: {
       'basic-table': basicTable,
       'tween-number': tweenNumber,
+      'basic-reader':basicReader
     },
     data() {
       return {
         value1: '',
-      }
-    },
-    data() {
-      return {
         msg: 'Welcome to Your Vue.js App',
         page: {
           currentPage: 1,
